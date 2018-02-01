@@ -224,7 +224,7 @@ that, zip [1] [2; 3; 4] = [(1, 2); (false, 3); (false, 4)]?
 let rec zip (x : int list) (y : int list) : (int * int) list =
   match x, y with
   | [], [] -> []
-  | (headx :: tailx), (heady :: taily) -> (headx, taily) :: zip tailx taily
+  | (headx :: tailx), (heady :: taily) -> (headx, heady) :: zip tailx taily
   | _, _ -> raise (Invalid_argument "length mismatch") ;;
 
 (*.....................................................................
