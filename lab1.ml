@@ -222,12 +222,10 @@ that, zip [1] [2; 3; 4] = [(1, 2); (false, 3); (false, 4)]?
 ......................................................................*)
 
 let rec zip (x : int list) (y : int list) : (int * int) list =
-    failwith " not implemented" ;;
-  (*if List.length x <> List.length y then
-    raise (Invalid_argument "length mismatch") ;;
   match x, y with
-  | [], [] -> x, y
-  | (headx :: tailx), (heady :: taily) -> (headx, taily) :: zip tailx taily ;;*)
+  | [], [] -> []
+  | (headx :: tailx), (heady :: taily) -> (headx, taily) :: zip tailx taily
+  | _, _ -> raise (Invalid_argument "length mismatch") ;;
 
 (*.....................................................................
 Exercise 10: Recall the definition of the function prods from lecture
